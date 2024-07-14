@@ -37,3 +37,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+#TODO: test out the time tracking around midnight to see if the time is tracked properly
