@@ -29,8 +29,21 @@ def get_local_time(loc):
         gmt_offset = zone.get('gmtOffset', 'N/A')
         timestamp = int(zone.get('timestamp', 0))
         # Convert the timestamp to a human-readable format
-        local_time = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')  ## convert the timestamp to human readable format
-        print(f"Country: {country_name}, City: {zone_name}, GMT Offset: {gmt_offset}, Local Time: {local_time}")
+        local_time = datetime.utcfromtimestamp(timestamp).strftime('%H:%M:%S')  ## convert the timestamp to human readable format
+        local_date = datetime.utcfromtimestamp(timestamp).strftime('%Y-%m-%d')  ## convert the timestamp to human readable format
+        ## return (f"Country: {country_name}, City: {zone_name}, GMT Offset: {gmt_offset}, Local Time: {local_time}")
+        return local_time, country_name, zone_name, gmt_offset, local_date
+    
+
+
+
+# Example usage
+get_local_time("Asia/Kolkata")
+
+
+#TODO: Implement the front end in way so that the recieved location can be passed to the function without error
+#TODO: Implement some error handling in case the location is not found
+
 
 
 ## response format  --> XML
@@ -41,5 +54,3 @@ def get_local_time(loc):
 <timestamp>1720839808</timestamp>
 </zone>'''
 
-# Example usage
-get_local_time("America/New_York")
