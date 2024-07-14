@@ -56,7 +56,8 @@ class TimeTracker:
             self.total_seconds += self._time_difference(self.start_time, stop_time)
             self.is_running = False
             print(f"Tracking stopped at {stop_time}")
-        print(f"Total tracked time: {self._seconds_to_time(self.total_seconds)}")
+            print(f"Total tracked time: {self._seconds_to_time(self.total_seconds)}")
+            self.total_seconds = 0  # Reset total tracked time
 
     def get_current_time(self):
         return get_local_time(self.location)
